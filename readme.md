@@ -34,4 +34,4 @@ _friendly reminder not to commit or save sensitive config values :)_
 If you are using the docker-compose file to create a postgres instance, the settings file is already configured to use the appropriate default values.
 
 ## Running code samples
-The `main.py` file contains a handful of basic samples for connecting to the database and running queries.
+The `main.py` file contains a handful of basic samples for connecting to the database and running queries. Feel free to adjust the function calls to suit your testing needs.
