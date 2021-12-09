@@ -4,13 +4,14 @@ from settings import DB_SETTINGS
 
 
 def get_pg_connector():
+    """import db_settings and return a connection object"""
     return psycopg2.connect(
-            dbname=DB_SETTINGS["DB_NAME"],
-            user=DB_SETTINGS["DB_USER"],
-            password=DB_SETTINGS["DB_PASSWORD"],
-            host=DB_SETTINGS["DB_HOST"],
-            port=DB_SETTINGS["DB_PORT"],
-        )
+        dbname=DB_SETTINGS["DB_NAME"],
+        user=DB_SETTINGS["DB_USER"],
+        password=DB_SETTINGS["DB_PASSWORD"],
+        host=DB_SETTINGS["DB_HOST"],
+        port=DB_SETTINGS["DB_PORT"],
+    )
 
 
 def get_server_version():
@@ -40,7 +41,7 @@ def create_sample_table():
         value VARCHAR(50)
     );"""
 
-    cur.execute(query) #there are no results as this is a DDL operation
+    cur.execute(query)  # there are no results as this is a DDL operation
     pg_con.commit()
 
     cur.close()
@@ -58,7 +59,7 @@ def create_sample_data():
         VALUES (1, 'foo', 'bar')
         ,(2, 'something', 'else')
         ,(3, 'another', 'example')
-    """ # see https://www.psycopg.org/docs/usage.html for ways to do this with placeholder variables
+    """  # see https://www.psycopg.org/docs/usage.html for ways to do this with placeholder variables
 
     cur.execute(query)
     pg_con.commit()
